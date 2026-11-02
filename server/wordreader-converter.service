@@ -1,0 +1,19 @@
+[Unit]
+Description=Wordreader legacy document converter
+After=network.target
+[Service]
+DynamicUser=yes
+ExecStart=/usr/bin/python3 /opt/wordreader/converter.py
+Restart=on-failure
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+NoNewPrivileges=yes
+MemoryMax=768M
+TasksMax=80
+CPUQuota=100%
+IPAddressDeny=any
+IPAddressAllow=localhost
+[Install]
+WantedBy=multi-user.target
